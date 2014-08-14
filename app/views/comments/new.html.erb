@@ -1,0 +1,14 @@
+<h1>Add Comments</h1>
+<%= form_for @comment do |f| %>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.collection_select :user_id, User.all, :id, :name %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
+
+<p><%= link_to "Back to List", comments_path %></p>
