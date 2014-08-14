@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  resources :users
+  resources :users 
   resources :comments
   resources :groups
 

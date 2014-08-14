@@ -31,16 +31,17 @@ class UsersController < ApplicationController
   end
   
   def update
-    #@user = User.find(params[:id])
-    #@user.memberships.update_attributes(user_params)
+    @user = User.find(params[:id])
+    @user.update_attributes(user_params)
+    redirect_to @user
     #@group = Membership.joins(:user).where(:user_id => @user.id)
     #@groups = params[:user][:group_ids]
     #@groups.each do |group|
-     # Membership.update_attributes(:"@group.group_id" => group, :user_id => @user.id)
+      #@user.update_attributes(params[:user][:group])
     #end
-    @user = User.find(params[:id])
-    Membership.update_user_memberships
-  end
+    #@user = User.find(params[:id])
+    #Membership.update_user_membership
+  end  
   
   def destroy
     @user = User.find(params[:id])
@@ -48,6 +49,7 @@ class UsersController < ApplicationController
     flash[:notice] = "Successfully destroyed user."
     redirect_to users_url
   end
+  
   private
 
   def user_params
